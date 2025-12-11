@@ -15,10 +15,16 @@ FasterWhisperの精度検証用リポジトリ
 ```
 
 ## QuickStart
+### 動作環境
 - Docker上で動作(DockerComposeの利用が前提)
 - `localhost:8501`で動作する
+
+### アプリケーションの起動
 ```bash
-cd app
+git clone https://github.com/takahiro00095/faster-whisper-demo
+```
+```bash
+cd faster-whisper-demo/app
 docker compose up
 ```
 ### 実行オプション
