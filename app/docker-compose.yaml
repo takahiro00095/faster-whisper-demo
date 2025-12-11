@@ -1,0 +1,21 @@
+services:
+  whisper:
+    build: .
+    container_name: whisper
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app  # コードを同期
+      - huggingface_cache:/root/.cache/huggingface # モデルを永続化
+    # ▼ NVIDIA GPUを使う設定
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: no
+
+volumes:
+  huggingface_cache:
